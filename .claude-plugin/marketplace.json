@@ -1,0 +1,14 @@
+{
+  "name": "abnt-unisa",
+  "owner": {
+    "name": "Renan BS"
+  },
+  "plugins": [
+    {
+      "name": "abnt-unisa",
+      "description": "Formatação acadêmica automatizada no padrão UNISA / ABNT para PDF, Word e HTML com suporte multi-IA.",
+      "version": "1.0.0",
+      "source": "./claude-code"
+    }
+  ]
+}

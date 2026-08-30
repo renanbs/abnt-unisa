@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.env
+*.env.*
+
+# Generated Documents / Test Outputs
+examples/*.html
+examples/*.pdf
+examples/*.docx
+*.pdf
+*.docx
+*.html
+
+# Keep example files if needed
+!examples/exemplo_resenha.md
+
+# OS & Editor
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/

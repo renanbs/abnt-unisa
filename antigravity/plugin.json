@@ -1,0 +1,8 @@
+{
+  "name": "abnt-unisa",
+  "version": "1.0.0",
+  "description": "Formatação acadêmica automatizada no padrão UNISA / ABNT para PDF, Word e HTML com suporte multi-IA.",
+  "skills": [
+    "./skills/abnt-unisa.md"
+  ]
+}

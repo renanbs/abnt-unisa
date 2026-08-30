@@ -1,0 +1,27 @@
+---
+description: Formatação acadêmica automatizada no padrão UNISA / ABNT para PDF, DOCX e HTML via CLI e Agent.
+globs: *
+alwaysApply: true
+---
+
+# ABNT UNISA Suite — Cursor Rules
+
+Esta regra habilita o Cursor a formatar documentos acadêmicos conforme o padrão **UNISA / ABNT**.
+
+## Comandos Disponíveis via CLI
+```bash
+# Formatar documento completo (gera PDF, DOCX e HTML)
+format-doc <arquivo.md>
+# ou
+abnt-unisa <arquivo.md>
+```
+
+## Regras Canônicas
+- **Papel:** A4 (210 x 297 mm)
+- **Margens:** Superior: 3 cm, Esquerda: 3 cm, Inferior: 2 cm, Direita: 2 cm
+- **Fonte:** Arial 12 pt (corpo do texto)
+- **Entrelinhas:** 1,5 no texto corrido
+- **Parágrafos:** Justificados com recuo de 1ª linha de 1,25 cm
+- **Cabeçalho:** Instituição e Curso centralizados (negrito, caixa alta); Alunas e Turma à esquerda; Docente centralizado; Título centralizado (negrito).
+- **Citações:** Curtas (aspas no texto), Longas (> 3 linhas, recuo 4 cm, entrelinhas 1,0, fonte 10 pt), Indiretas (sem aspas).
+- **Referências (NBR 6023):** Alinhadas à esquerda em espaçamento simples.

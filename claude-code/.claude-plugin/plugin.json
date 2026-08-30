@@ -1,0 +1,12 @@
+{
+  "name": "abnt-unisa",
+  "version": "1.0.0",
+  "description": "Formatação acadêmica automatizada no padrão UNISA / ABNT (PDF, DOCX, HTML).",
+  "author": "Renan BS",
+  "skills": [
+    "./skills/abnt-unisa/SKILL.md"
+  ],
+  "commands": [
+    "./commands/format-doc.md"
+  ]
+}

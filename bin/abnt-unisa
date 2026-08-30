@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+ENGINE="${SCRIPT_DIR}/shared/scripts/format_abnt.py"
+
+show_help() {
+  cat << 'EOF'
+abnt-unisa / format-doc - Formatador Acadêmico UNISA / ABNT
+
+USO:
+  abnt-unisa <arquivo.md> [opções]
+  format-doc <arquivo.md> [opções]
+
+OPÇÕES:
+  -o, --output <nome>      Prefixo do arquivo de saída (opcional)
+  --font <Arial|Times New Roman>
+                           Fonte do documento (padrão: Arial)
+  --target <all|pdf|docx|html>
+                           Formatos a gerar (padrão: all)
+  -h, --help               Exibe esta mensagem de ajuda
+
+COMANDOS ESPECIAIS:
+  install-cli              Instala links de 'abnt-unisa' e 'format-doc' em ~/.local/bin
+  check-deps               Verifica se Chrome e LibreOffice estão instalados
+EOF
+}
+
+if [[ $# -eq 0 ]]; then
+  show_help
+  exit 1
+fi
+
+case "${1:-}" in
+  -h|--help|help)
+    show_help
+    exit 0
+    ;;
+  install-cli)
+    mkdir -p "${HOME}/.local/bin"
+    ln -sf "${SCRIPT_DIR}/bin/abnt-unisa" "${HOME}/.local/bin/abnt-unisa"
+    ln -sf "${SCRIPT_DIR}/bin/abnt-unisa" "${HOME}/.local/bin/format-doc"
+    ln -sf "${SCRIPT_DIR}/bin/abnt-unisa" "${HOME}/.local/bin/format-abnt"
+    echo "✅ Comandos instalados em ${HOME}/.local/bin: abnt-unisa, format-doc, format-abnt"
+    exit 0
+    ;;
+  check-deps)
+    echo "🔍 Verificando dependências de sistema..."
+    python3 --version || echo "❌ python3 ausente"
+    which google-chrome-stable google-chrome chromium 2>/dev/null | head -n1 && echo "✅ Chromium/Chrome disponível" || echo "⚠️ Chrome/Chromium não encontrado (necessário para PDF)"
+    which soffice libreoffice 2>/dev/null | head -n1 && echo "✅ LibreOffice disponível" || echo "⚠️ LibreOffice não encontrado (necessário para DOCX)"
+    exit 0
+    ;;
+  *)
+    exec python3 "${ENGINE}" "$@"
+    ;;
+esac
