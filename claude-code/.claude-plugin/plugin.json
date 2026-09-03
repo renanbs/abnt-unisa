@@ -1,12 +1,22 @@
 {
   "name": "abnt-unisa",
-  "version": "1.0.0",
-  "description": "Formatação acadêmica automatizada no padrão UNISA / ABNT (PDF, DOCX, HTML).",
-  "author": "Renan BS",
-  "skills": [
-    "./skills/abnt-unisa/SKILL.md"
-  ],
-  "commands": [
-    "./commands/format-doc.md"
+  "version": "1.1.0",
+  "description": "Formatação acadêmica automatizada no padrão UNISA / ABNT (NBR 14724, NBR 6023, NBR 10520) com geração de PDF, DOCX e HTML.",
+  "author": {
+    "name": "Renan BS",
+    "email": "renan.biegel@gmail.com",
+    "url": "https://github.com/renanbs"
+  },
+  "homepage": "https://github.com/renanbs/abnt-unisa",
+  "repository": "https://github.com/renanbs/abnt-unisa",
+  "license": "MIT",
+  "keywords": [
+    "abnt",
+    "unisa",
+    "academico",
+    "formatacao",
+    "pdf",
+    "docx",
+    "pandoc"
   ]
 }
