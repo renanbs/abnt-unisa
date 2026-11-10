@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+SOURCE="${BASH_SOURCE[0]}"
+while [ -L "$SOURCE" ]; do
+  DIR="$(cd -P "$(dirname "$SOURCE")" && pwd)"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
+done
+SCRIPT_DIR="$(cd -P "$(dirname "$SOURCE")/.." && pwd)"
 ENGINE="${SCRIPT_DIR}/shared/scripts/format_abnt.py"
 
 show_help() {
@@ -18,6 +24,8 @@ OPÇÕES:
                            Fonte do documento (padrão: Arial)
   --target <all|pdf|docx|html>
                            Formatos a gerar (padrão: all)
+  --type <auto|resenha|trabalho>
+                           auto detecta capa/resumo; resenha mantém o fluxo contínuo
   -h, --help               Exibe esta mensagem de ajuda
 
 COMANDOS ESPECIAIS:
