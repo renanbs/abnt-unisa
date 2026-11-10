@@ -69,3 +69,16 @@ format-doc documento.md
 # ou
 abnt-unisa documento.md
 ```
+
+## Modos
+
+| Modo | Quando | Resultado |
+| :--- | :--- | :--- |
+| `resenha` (padrão histórico) | Sem bloco RESUMO + nota de apresentação | Cabeçalho institucional no topo da primeira página |
+| `trabalho` | Há `RESUMO` e a frase "Trabalho acadêmico apresentado" | Capa, folha de rosto, resumo e corpo em páginas separadas |
+| `auto` | Padrão da CLI (`--type auto`) | Escolhe `trabalho` só quando os dois marcadores existem; caso contrário permanece `resenha` |
+
+Títulos de obras nas referências ficam em negrito quando o Markdown usa `**título**`.
+
+Imagem no início do Markdown (`![](...)`) entra como logotipo da capa no modo trabalho e não vai para o corpo do texto.
+
